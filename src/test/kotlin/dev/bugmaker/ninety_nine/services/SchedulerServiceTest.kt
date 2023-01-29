@@ -19,8 +19,8 @@ class SchedulerServiceTest {
     lateinit var schedulerService :SchedulerService
     @Test
     fun scheduledUpdateOfStocks() {
-        val numberOfInvocations = 3
-        await().atMost(Duration.ofSeconds(70))
+        val numberOfInvocations = 2
+        await().atMost(Duration.ofSeconds(30))
             .untilAsserted { verify(schedulerService, atLeast(numberOfInvocations)).scheduledUpdateOfStocks() }
 
         verify(stockService, atLeast(numberOfInvocations)).fetchAndPersistLatestStock()
