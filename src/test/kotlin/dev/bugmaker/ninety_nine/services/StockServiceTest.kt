@@ -36,4 +36,15 @@ class StockServiceTest {
         verify { stockClient.fetchStock() }
         verify { stockRepository.insert(stockFixture) }
     }
+
+    @Test
+    fun findCompanyNames() {
+        val companyNames = listOf("foo", "bar")
+        every { stockRepository.findDistinctCompanyNames() } returns companyNames
+
+        assertEquals(stockService.findCompanyNames(), companyNames)
+
+        verify { stockRepository.findDistinctCompanyNames() }
+
+    }
 }

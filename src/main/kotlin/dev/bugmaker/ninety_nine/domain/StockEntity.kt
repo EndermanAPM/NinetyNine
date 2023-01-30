@@ -1,14 +1,16 @@
 package dev.bugmaker.ninety_nine.domain
 
+import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.mongodb.core.mapping.TimeSeries
 import org.springframework.format.annotation.DateTimeFormat
+
 import java.util.*
 
-@TimeSeries(collection = "stock", timeField = "timestamp", metaField = "company")
+@TimeSeries(collection = "stock", timeField = "timestamp", metaField = "companyName")
 data class StockEntity (
     @field:DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    val timestamp: Date,
-    val company: String,
-    val value: Float,
-
+    val timestamp: Date? = null,
+    @field:Indexed
+    val companyName: String,
+    val value: Float? = null,
 )

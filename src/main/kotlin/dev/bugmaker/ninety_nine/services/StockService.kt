@@ -13,4 +13,7 @@ class StockService(
         val stockList = stockClient.fetchStock()
         stockRepository.insert(stockList)
     }
+
+    fun findCompanyNames() = stockRepository.findDistinctCompanyNames()
+
 }

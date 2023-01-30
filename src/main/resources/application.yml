@@ -1,10 +1,11 @@
 
-#spring:
-#  data:
-#    mongodb:
-#      username: admin
-#      password: p4ssw0rd
-#      database: ninetynine
-#      port: 27017
-#      host: localhost
-#      authenticationDatabase: admin
+spring:
+  data:
+    mongodb:
+      username: admin
+      password: p4ssw0rd
+      database: ninetynine
+      port: 27017
+      host: localhost
+      authenticationDatabase: admin
+      auto-index-creation: true
