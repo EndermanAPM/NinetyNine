@@ -16,11 +16,19 @@ repositories {
 }
 
 dependencies {
+	// Spring
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+	// Kotlin
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+	// Swagger
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
+
+	// Testing
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.mockk:mockk:1.13.3")
 	testImplementation("org.awaitility:awaitility:4.2.0")
