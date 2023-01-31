@@ -2,6 +2,8 @@ package dev.bugmaker.ninety_nine.services
 
 import dev.bugmaker.ninety_nine.Fixtures
 import dev.bugmaker.ninety_nine.clients.StockClient
+import dev.bugmaker.ninety_nine.domain.StockAggregateValueDTO
+import dev.bugmaker.ninety_nine.domain.TimeFilterEnum
 import dev.bugmaker.ninety_nine.repositories.StockRepository
 import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
@@ -47,4 +49,15 @@ class StockServiceTest {
         verify { stockRepository.findDistinctCompanyNames() }
 
     }
+    @Test
+    fun findCompanyValues() {
+        every { stockRepository.findAggregatedStockDataByTimeGroup("Apple", TimeFilterEnum.DAILY.value) } returns listOf( StockAggregateValueDTO("2000-01-01T00", 10f, 10f, 10f))
+
+        stockService.findCompanyValues("Apple", TimeFilterEnum.DAILY)
+
+        verify { stockRepository.findAggregatedStockDataByTimeGroup("Apple", TimeFilterEnum.DAILY.value) }
+
+
+    }
+
 }

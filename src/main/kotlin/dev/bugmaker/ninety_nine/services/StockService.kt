@@ -1,6 +1,7 @@
 package dev.bugmaker.ninety_nine.services
 
 import dev.bugmaker.ninety_nine.clients.StockClient
+import dev.bugmaker.ninety_nine.domain.TimeFilterEnum
 import dev.bugmaker.ninety_nine.repositories.StockRepository
 import org.springframework.stereotype.Service
 
@@ -15,5 +16,6 @@ class StockService(
     }
 
     fun findCompanyNames() = stockRepository.findDistinctCompanyNames()
+    fun findCompanyValues(companyName: String, timePeriod: TimeFilterEnum) = stockRepository.findAggregatedStockDataByTimeGroup(companyName,timePeriod.value)
 
 }

@@ -1,9 +1,9 @@
 package dev.bugmaker.ninety_nine.controllers
 
+import dev.bugmaker.ninety_nine.domain.StockAggregateValueDTO
+import dev.bugmaker.ninety_nine.domain.TimeFilterEnum
 import dev.bugmaker.ninety_nine.services.StockService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 
 @RestController
@@ -13,6 +13,17 @@ class StockController(
 ) {
     @GetMapping("companies")
     fun companies(): List<String> {
+
         return stockService.findCompanyNames()
     }
+
+    @GetMapping("/companies/{id}")
+    fun companyDetail(
+        @PathVariable id: String,
+        @RequestParam(defaultValue = "HOURLY") timePeriod: TimeFilterEnum
+    ): List<StockAggregateValueDTO> {
+
+        return stockService.findCompanyValues(id, timePeriod)
+    }
+
 }
