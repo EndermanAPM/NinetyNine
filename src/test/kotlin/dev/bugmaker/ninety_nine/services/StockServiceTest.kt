@@ -28,7 +28,7 @@ class StockServiceTest {
     lateinit var stockService: StockService
 
     @Test
-    fun fetchLatestStock() {
+    fun fetchLatestStock_happypath() {
         val stockFixture = Fixtures().mockedStocks()
         every { stockClient.fetchStock() } returns stockFixture
         every { stockRepository.insert(stockFixture) } returns stockFixture
@@ -40,7 +40,7 @@ class StockServiceTest {
     }
 
     @Test
-    fun findCompanyNames() {
+    fun findCompanyNames_happypath() {
         val companyNames = listOf("foo", "bar")
         every { stockRepository.findDistinctCompanyNames() } returns companyNames
 

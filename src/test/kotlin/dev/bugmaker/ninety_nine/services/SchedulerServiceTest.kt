@@ -18,7 +18,7 @@ class SchedulerServiceTest {
     @SpyBean
     lateinit var schedulerService :SchedulerService
     @Test
-    fun scheduledUpdateOfStocks() {
+    fun `given scheduled is enabled then scheduledUpdateOfStocks should get invoked every 20 seconds`() {
         val numberOfInvocations = 2
         await().atMost(Duration.ofSeconds(30))
             .untilAsserted { verify(schedulerService, atLeast(numberOfInvocations)).scheduledUpdateOfStocks() }
