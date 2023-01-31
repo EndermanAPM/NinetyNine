@@ -49,6 +49,7 @@ class StockServiceTest {
         verify { stockRepository.findDistinctCompanyNames() }
 
     }
+
     @Test
     fun findCompanyValues() {
         every { stockRepository.findAggregatedStockDataByTimeGroup("Apple", TimeFilterEnum.DAILY.value) } returns listOf( StockAggregateValueDTO("2000-01-01T00", 10f, 10f, 10f))

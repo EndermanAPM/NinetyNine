@@ -15,8 +15,10 @@ class SchedulerServiceTest {
 
     @MockBean
     lateinit var stockService: StockService
+
     @SpyBean
-    lateinit var schedulerService :SchedulerService
+    lateinit var schedulerService: SchedulerService
+
     @Test
     fun `given scheduled is enabled then scheduledUpdateOfStocks should get invoked every 20 seconds`() {
         val numberOfInvocations = 2

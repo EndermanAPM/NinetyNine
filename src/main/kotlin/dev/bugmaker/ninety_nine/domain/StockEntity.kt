@@ -7,7 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat
 import java.util.*
 
 @TimeSeries(collection = "stock", timeField = "timestamp", metaField = "companyName")
-data class StockEntity (
+data class StockEntity(
     @field:DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     val timestamp: Date,
     @field:Indexed

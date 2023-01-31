@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 
 @Component
 class StockClient {
-    fun fetchStock() : List<StockEntity> {
-         TODO()
+    fun fetchStock(): List<StockEntity> {
+        TODO()
     }
 }

@@ -16,8 +16,6 @@ class Fixtures {
     )
 
 
-
-
     fun mockedStocksByWeeks(weeks: Int = 2): List<StockEntity> {
         val days = weeks * 7
         val hours = days * 24

@@ -66,6 +66,7 @@ class StockRepositoryITTest {
         val aggregatedStockData = stockRepository.findAggregatedStockDataByTimeGroup(companyName, TimeFilterEnum.DAILY.value)
         assertThat(aggregatedStockData).hasSize(2).containsAll(expectedResult)
     }
+
     @Test
     fun `GIVEN weekly dateformat WHEN fetching aggregated stock prices THEN should return weekly stock data`() {
         val companyName = "RoyalOilLunarFactory"

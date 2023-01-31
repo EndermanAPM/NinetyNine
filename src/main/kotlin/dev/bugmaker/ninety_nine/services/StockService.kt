@@ -16,6 +16,7 @@ class StockService(
     }
 
     fun findCompanyNames() = stockRepository.findDistinctCompanyNames()
-    fun findCompanyValues(companyName: String, timePeriod: TimeFilterEnum) = stockRepository.findAggregatedStockDataByTimeGroup(companyName,timePeriod.value)
+    fun findCompanyValues(companyName: String, timePeriod: TimeFilterEnum) =
+        stockRepository.findAggregatedStockDataByTimeGroup(companyName, timePeriod.value)
 
 }

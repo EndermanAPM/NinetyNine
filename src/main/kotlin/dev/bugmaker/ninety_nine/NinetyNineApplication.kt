@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class NinetyNineApplication
 
 fun main(args: Array<String>) {
-	runApplication<NinetyNineApplication>(*args)
+    runApplication<NinetyNineApplication>(*args)
 }

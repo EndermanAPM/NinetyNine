@@ -15,7 +15,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 
 
-@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class StockITTest {
 
@@ -24,7 +24,6 @@ class StockITTest {
 
     @Autowired
     lateinit var stockRepository: StockRepository
-
 
 
     @BeforeAll
@@ -43,6 +42,7 @@ class StockITTest {
         assertEquals(HttpStatus.OK, result?.statusCode)
         assertEquals(result.body, listOf("Apple", "Microsoft", "Tesla"))
     }
+
     @Test
     fun `GIVEN hourly filter WHEN Get company detail is called THEN should return company hourly prices`() {
 
@@ -60,6 +60,7 @@ class StockITTest {
                 .hasFieldOrProperty("minValue")
         }
     }
+
     @Test
     fun `GIVEN NO hourly filter WHEN Get company detail is called THEN should return company hourly prices`() {
 
@@ -69,6 +70,7 @@ class StockITTest {
         assertThat(resultWithoutFilters).isEqualTo(result)
 
     }
+
     @Test
     fun `GIVEN daily filter WHEN Get company detail is called THEN should return company daily prices`() {
 
@@ -76,7 +78,7 @@ class StockITTest {
 
         assertNotNull(result)
         assertEquals(HttpStatus.OK, result?.statusCode)
-        assertThat(result.body).hasSizeBetween(14,16)
+        assertThat(result.body).hasSizeBetween(14, 16)
 
         assertThat(result.body).allSatisfy {
             assertThat(it).hasNoNullFieldsOrProperties()
@@ -86,6 +88,7 @@ class StockITTest {
                 .hasFieldOrProperty("minValue")
         }
     }
+
     @Test
     fun `GIVEN weekly filter WHEN Get company detail is called THEN should return company weekly prices`() {
 
