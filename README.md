@@ -34,7 +34,7 @@ Fun fact:
  - Better scheduling
  - Add [embedded mongo](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo.spring/tree/spring-3.0.x) for ease of
 use, portability for integration tests (CI) and remove the need to manually purge old data in the tests.
- - Acctually creating a timeseries collection [#1](https://github.com/spring-projects/spring-data-mongodb/issues/4166)
+ - Actually creating a timeseries collection [#1](https://github.com/spring-projects/spring-data-mongodb/issues/4166)
  - Add query pagination and limit in time
  - General observability
  - 404 on non-existent company name
